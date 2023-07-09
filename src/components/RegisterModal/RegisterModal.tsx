@@ -1,14 +1,18 @@
 import closeModalIMG from "../../assets/closeModal.png"
+import { useNavigate} from "react-router-dom"
 
 type Props = {
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
+    const navigate = useNavigate()
+    
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = Object.fromEntries(new FormData(event.target as HTMLFormElement))
-        console.log(data)
+        
+        navigate("/user/1/rafa")
     }
     
     const handleCloseModal = () =>{
