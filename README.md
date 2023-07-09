@@ -12,7 +12,7 @@ This app should have the following features:
 
 ### Week July 10th to July 16th
 - [X] Create mock Register feature without a server
-- [ ] Create mock Sign In feature without a server
+- [x] Create mock Sign In feature without a server
 - [ ] Create Sign Out option
 - [ ] Show mock To-Do's
 - [ ] Toggle To-Do's state (completed/pending)
