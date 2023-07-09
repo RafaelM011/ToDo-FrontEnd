@@ -27,7 +27,7 @@ This app should have the following features:
         axisFormat %m-%d
         
         section Frontend
-            Mock Register                   :07-10, 1d
+            Mock Register                   :active, 07-10, 1d
             Mock Sign In                    :07-11, 1d
             Sign out                        :07-11, 1d
             Mock To-Do's                    :07-12, 1d
@@ -36,7 +36,7 @@ This app should have the following features:
             BackEnd                         :07-16, 1d
 
         section Testing
-            Test Mock Register              :07-10, 1d
+            Test Mock Register              :active, 07-10, 1d
             Test Mock Sign In               :07-11, 1d
             Test Sign out                   :07-11, 1d
             Test Mock To-Do's               :07-12, 1d
