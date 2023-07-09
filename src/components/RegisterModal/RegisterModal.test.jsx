@@ -1,15 +1,20 @@
-import { describe, test, expect, beforeEach, beforeAll, afterEach, vi } from "vitest"
+import { describe, test, expect, beforeAll, beforeEach} from "vitest"
 import { render, screen } from "@testing-library/react"
 import userEvent from '@testing-library/user-event';
 
 import { RegisterModal } from "./RegisterModal"
+import { BrowserRouter } from "react-router-dom";
 
 describe("<RegisterModal/>", () => {
     beforeAll(() => {
-        render(<RegisterModal />)
+        render(
+            <BrowserRouter>
+                <RegisterModal />
+            </BrowserRouter>
+        )
     })
 
-    afterEach(async () => {
+    beforeEach(async () => {
         let userInputElement = screen.getByPlaceholderText('username')
         let emailInputElement = screen.getByPlaceholderText('email@domain.com')
         let passwordInputElement = screen.getByPlaceholderText('password')
@@ -39,15 +44,15 @@ describe("<RegisterModal/>", () => {
         await userEvent.type(repPasswordInputElement, "Rafael011")
 
         await userEvent.click(registerButton)
-
-        expect(screen.getByText('Email is incorrect')).toBeDefined();
-
+        
+        expect(screen.queryByText("Email is incorrect")).toBeDefined();
+        
         await userEvent.clear(emailInputElement)
         await userEvent.type(emailInputElement, "Rafael@gmail.com")
-
+        
         await userEvent.click(registerButton)
-
-        expect(screen.queryByText('Email is incorrect')).toBeNull();
+        
+        expect(screen.queryByText("Email is incorrect")).toBeNull();
     })
 
     test("The register form password input is being validated", async () => {

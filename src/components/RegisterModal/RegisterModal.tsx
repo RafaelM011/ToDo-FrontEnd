@@ -18,7 +18,7 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
     const navigate = useNavigate()
     const EMAIL_REGEX = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/m
-
+    
     const validateData = (data: IData): {response: boolean, label: string, errorMessage: string} => {
         let { email, password, repeatedPassword} = data;
                 
@@ -38,7 +38,10 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
         const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement)) as unknown as IData
         const formValidation = validateData(formData)
 
-        if(formValidation.response === true) navigate(`/user/1/${formData.user}`)
+        if(formValidation.response === true){
+            setFormResponse(formValidation)
+            navigate(`/user/1/${formData.user}`)
+        } 
         else setFormResponse(formValidation)
     }
     
