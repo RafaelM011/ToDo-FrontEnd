@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { RegisterModal } from './components/RegisterModal/RegisterModal';
+import { RegisterModal } from '../components/RegisterModal/RegisterModal';
 
-export default function App(): JSX.Element {
+export default function Home(): JSX.Element {
   const [showModal, setShowModal] = useState(false);
     
   const handleRegisterClick = () => {
