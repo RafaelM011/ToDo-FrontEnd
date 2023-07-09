@@ -1,15 +1,17 @@
-import { describe, test, expect, beforeAll, beforeEach} from "vitest"
+import { describe, test, expect, beforeAll, beforeEach, vi} from "vitest"
 import { render, screen } from "@testing-library/react"
 import userEvent from '@testing-library/user-event';
 
 import { RegisterModal } from "./RegisterModal"
 import { BrowserRouter } from "react-router-dom";
 
+const setShowModal = vi.fn();
+
 describe("<RegisterModal/>", () => {
     beforeAll(() => {
         render(
             <BrowserRouter>
-                <RegisterModal />
+                <RegisterModal setShowModal={setShowModal} />
             </BrowserRouter>
         )
     })
@@ -53,6 +55,7 @@ describe("<RegisterModal/>", () => {
         await userEvent.click(registerButton)
         
         expect(screen.queryByText("Email is incorrect")).toBeNull();
+        
     })
 
     test("The register form password input is being validated", async () => {
@@ -101,5 +104,12 @@ describe("<RegisterModal/>", () => {
         await userEvent.click(registerButton)
 
         expect(screen.queryByText("Passwords are not equal")).toBeNull();
+    })
+
+    test("Close modal function is being called when clicking the X button", async () =>{
+        let closeButton = screen.getByAltText("close-modal");
+        await userEvent.click(closeButton);
+
+        expect(setShowModal.mock.calls).toHaveLength(1);
     })
 })
