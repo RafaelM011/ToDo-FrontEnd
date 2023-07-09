@@ -11,7 +11,7 @@ This app should have the following features:
 - [ ] optional: add a deadline when creating a new To-Do 
 
 ### Week July 10th to July 16th
-- [ ] Create mock Register feature without a server
+- [X] Create mock Register feature without a server
 - [ ] Create mock Sign In feature without a server
 - [ ] Create Sign Out option
 - [ ] Show mock To-Do's
@@ -27,8 +27,8 @@ This app should have the following features:
         axisFormat %m-%d
         
         section Frontend
-            Mock Register                   :active, 07-10, 1d
-            Mock Sign In                    :07-11, 1d
+            Mock Register                   :done, 07-10, 1d
+            Mock Sign In                    :active, 07-11, 1d
             Sign out                        :07-11, 1d
             Mock To-Do's                    :07-12, 1d
             Toggle/Add/Remove To-Do's       :07-13, 1d
@@ -36,8 +36,8 @@ This app should have the following features:
             BackEnd                         :07-16, 1d
 
         section Testing
-            Test Mock Register              :active, 07-10, 1d
-            Test Mock Sign In               :07-11, 1d
+            Test Mock Register              :done, 07-10, 1d
+            Test Mock Sign In               :active, 07-11, 1d
             Test Sign out                   :07-11, 1d
             Test Mock To-Do's               :07-12, 1d
             Test Toggle/Add/Remove To-Do's  :07-13, 1d
