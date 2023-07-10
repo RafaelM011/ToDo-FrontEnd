@@ -14,7 +14,7 @@ This app should have the following features:
 - [X] Create mock Register feature without a server
 - [x] Create mock Sign In feature without a server
 - [x] Create Sign Out option
-- [ ] Show mock To-Do's
+- [x] Show mock To-Do's
 - [ ] Toggle To-Do state (completed/pending)
 - [ ] Add/Remove To-Do
 - [x] Create a filter (all/completed/pending)
