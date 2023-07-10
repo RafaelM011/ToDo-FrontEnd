@@ -20,18 +20,27 @@ export const ToDo : React.FC = (): JSX.Element => {
     const { name } = useParams();
     const [ todoStatusFilter, setTodoStatusFilter] = useState<"Completed" | "Pending">("Pending")
     const [ todos, setTodos] = useState(MockTodos)
-    const [ filteredTodos, setFilteredTodos] = useState<Todos>(MockTodos)
+    const [ filteredTodos, setFilteredTodos] = useState<Todos>(todos)
+
+    const addTodo = (todo: string) => {
+        setTodos(prevState => {
+            return [...prevState].concat({
+                status: "Pending",
+                description: todo
+            })
+        })
+    }
 
     useEffect(() => {
         const filtered = todos.filter((todo) => todo.status === todoStatusFilter)
         setFilteredTodos(filtered)
-    },[todoStatusFilter])
+    },[todoStatusFilter, todos])
 
     return(
         <div className="flex">
             <ProfileBar username={name!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
             <div className="flex">
-                <ToDoList todos={todos}/> 
+                <ToDoList todos={todos} addTodo={addTodo}/> 
                 <FilteredTodos todos={filteredTodos}/>                
             </div>
         </div>
