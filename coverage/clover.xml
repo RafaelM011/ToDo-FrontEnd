@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1688944049205" clover="3.2.0">
-  <project timestamp="1688944049205" name="All files">
-    <metrics statements="125" coveredstatements="125" conditionals="26" coveredconditionals="22" methods="8" coveredmethods="8" elements="159" coveredelements="155" complexity="0" loc="125" ncloc="125" packages="2" files="2" classes="2"/>
+<coverage generated="1688952100110" clover="3.2.0">
+  <project timestamp="1688952100110" name="All files">
+    <metrics statements="161" coveredstatements="160" conditionals="32" coveredconditionals="27" methods="11" coveredmethods="11" elements="204" coveredelements="198" complexity="0" loc="161" ncloc="161" packages="3" files="3" classes="3"/>
+    <package name="ProfileBar">
+      <metrics statements="36" coveredstatements="35" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
+      <file name="ProfileBar.tsx" path="C:\Users\TEMP.LAPTOP-472528GC.004\Desktop\ZeroToMastery\PersonalProjects\To_Do_List\todo_frontend\src\components\ProfileBar\ProfileBar.tsx">
+        <metrics statements="36" coveredstatements="35" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+      </file>
+    </package>
     <package name="RegisterModal">
       <metrics statements="84" coveredstatements="84" conditionals="19" coveredconditionals="19" methods="5" coveredmethods="5"/>
       <file name="RegisterModal.tsx" path="C:\Users\TEMP.LAPTOP-472528GC.004\Desktop\ZeroToMastery\PersonalProjects\To_Do_List\todo_frontend\src\components\RegisterModal\RegisterModal.tsx">

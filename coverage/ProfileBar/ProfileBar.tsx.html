@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for SignIn/SignIn.tsx</title>
+    <title>Code coverage report for ProfileBar/ProfileBar.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">SignIn</a> SignIn.tsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">ProfileBar</a> ProfileBar.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">97.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>41/41</span>
+                <span class='fraction'>35/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">97.22% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>41/41</span>
+                <span class='fraction'>35/36</span>
             </div>
         
             
@@ -98,12 +98,9 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -118,12 +115,9 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -139,49 +133,40 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import { useNavigate } from "react-router-dom";
 &nbsp;
-interface IData {
-    user: string;
-    email: string;
-    password: string;
-    repeatedPassword: string;
+type Props = {
+    username: string;
+    todos: {
+      status: "Completed" | "Pending";
+      description: string;  
+    }[];
+    todoStatusFilter: "Completed" | "Pending";
+    setTodoStatusFilter: React.Dispatch&lt;React.SetStateAction&lt;"Completed" | "Pending"&gt;&gt;;
 }
 &nbsp;
-export const SignIn: React.FC = (): JSX.Element =&gt; {
-    const [formResponse, setFormResponse] = useState&lt;{response: boolean, label: string, errorMessage: string}&gt;()
-    const navigate = useNavigate();
+export const ProfileBar: React.FC&lt;Props&gt; = ({username, todos, todoStatusFilter, setTodoStatusFilter}): JSX.Element =&gt; {
+    const navigate = useNavigate()
+    const completedTodos = todos.filter((todo) =&gt; todo.status === "Completed").length
+    const pendingTodos = todos.filter((todo) =&gt; todo.status === "Pending").length
 &nbsp;
-    const handleSubmit = (event: React.FormEvent&lt;HTMLFormElement&gt;) =&gt; {
-        event.preventDefault();
-        const formData = Object.fromEntries(new FormData(event.target as HTMLFormElement)) as unknown as IData
-        // const formValidation = validateData(formData)
-        
-        navigate(`user/1/${formData.user}`)
+    const handleToggleButton = () =&gt; {
+        if(todoStatusFilter === "Pending") setTodoStatusFilter("Completed"<span class="branch-0 cbranch-no" title="branch not covered" >)</span>
+<span class="cstat-no" title="statement not covered" >        else setTodoStatusFilter("Pending")</span>
     }
-   
+&nbsp;
     return(
-        &lt;&gt;
-            &lt;div className="m-auto w-7/12 max-w-[500px] h-fit p-4 border-2 border-black relative top-[200px]"&gt;
-                &lt;h1 className="text-center text-2xl font-bold mb-10"&gt; To-Do App &lt;/h1&gt;
-                &lt;form onSubmit={(event) =&gt; handleSubmit(event)} className=""&gt;
-                    &lt;label htmlFor='user' className="block text-center"&gt; Username: &lt;/label&gt;
-                    &lt;input name='user' className="block mx-auto max-w-[180px] w-11/12" type="text" placeholder="username"&gt;&lt;/input&gt;
-                    &lt;p className="text-red-400 mx-autp h-fit w-fit"&gt; {<span class="branch-0 cbranch-no" title="branch not covered" >formResponse?.label === <span class="branch-0 cbranch-no" title="branch not covered" >'</span>user' &amp;&amp; formResponse?.errorMessage} </span>&lt;/p&gt;
+        &lt;div&gt;
+            &lt;h1&gt; {username} &lt;/h1&gt;
+            &lt;h2&gt; Todos : {completedTodos + pendingTodos} &lt;/h2&gt;
+            &lt;h2&gt; Completed todos: {completedTodos}&lt;/h2&gt;
+            &lt;h2&gt; Pending todos: {pendingTodos}&lt;/h2&gt;
 &nbsp;
-                    &lt;label htmlFor="password" className="block text-center"&gt; Password: &lt;/label&gt;
-                    &lt;input name="password" className="block mx-auto max-w-[180px] w-11/12" type="password" placeholder="password"&gt;&lt;/input&gt;
-                    &lt;p className="text-red-400 mx-auto h-fit w-fit"&gt; {<span class="branch-0 cbranch-no" title="branch not covered" >formResponse?.label === <span class="branch-0 cbranch-no" title="branch not covered" >'</span>password' &amp;&amp; formResponse?.errorMessage} </span>&lt;/p&gt;
+            &lt;button role="toggle-button" onClick={handleToggleButton}&gt; CLICK ME &lt;/button&gt;
+            &lt;h2&gt; {todoStatusFilter} &lt;/h2&gt;
 &nbsp;
-                    &lt;button className="block mx-auto max-w-[180px] w-11/12" type="submit"&gt; Sign In &lt;/button&gt;    
-                &lt;/form&gt;
-            &lt;/div&gt;
-        &lt;/&gt;
+            &lt;button onClick={() =&gt; navigate("/")}&gt; Sign Out &lt;/button&gt;
+        &lt;/div&gt;
     )
 }</pre></td></tr></table></pre>
 

@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react"
 import userEvent from '@testing-library/user-event'
 
 import { ProfileBar } from "./ProfileBar"
+import { BrowserRouter } from "react-router-dom"
 
 const mockUser = {
     name: "Rafael",
@@ -22,10 +23,15 @@ const mockUser = {
     ]
 }
 
-describe("<ProfileBar/>", () => {
+const mockFn = vi.fn()
 
+describe("<ProfileBar/>", () => {
     beforeAll(() => {
-        render(<ProfileBar username={mockUser.name} todos={mockUser.todos}/>)
+        render(
+            <BrowserRouter>
+                <ProfileBar username={mockUser.name} todos={mockUser.todos} todoStatusFilter="Pending" setTodoStatusFilter={mockFn}/>
+            </BrowserRouter>
+        )
     }) 
     
     test("ProfileBar component is being rendered", () => {
@@ -36,10 +42,7 @@ describe("<ProfileBar/>", () => {
         let toggleButton = screen.getByRole("toggle-button")
 
         await userEvent.click(toggleButton);
-        expect(screen.getByText("Completed")).toBeDefined();
-
-        await userEvent.click(toggleButton);
-        expect(screen.getByText("Pending")).toBeDefined();
+        expect(mockFn.mock.calls.length).toBe(1)
     })
 
     test("Sign out option is working", async () => {
