@@ -16,7 +16,7 @@ This app should have the following features:
 - [x] Create Sign Out option
 - [x] Show mock To-Do's
 - [ ] Toggle To-Do state (completed/pending)
-- [ ] Add/Remove To-Do
+- [x] Add/Remove To-Do
 - [x] Create a filter (all/completed/pending)
 - [ ] Integrate BackEnd
 
@@ -30,9 +30,9 @@ This app should have the following features:
             Mock Register                   :done, 07-10, 1d
             Mock Sign In                    :done, 07-11, 1d
             Sign out                        :done, 07-11, 1d
-            Mock To-Do's                    :07-12, 1d
+            Mock To-Do's                    :done, 07-12, 1d
             Toggle/Add/Remove To-Do's       :07-13, 1d
-            Filter                          :07-15, 1d
+            Filter                          :done, 07-15, 1d
             BackEnd                         :07-16, 1d
 
         section Testing
@@ -41,5 +41,5 @@ This app should have the following features:
             Test Sign out                   :done, 07-11, 1d
             Test Mock To-Do's               :07-12, 1d
             Test Toggle/Add/Remove To-Do's  :07-13, 1d
-            Test Filter                     :07-15,1d
+            Test Filter                     :done, 07-15,1d
 ```
