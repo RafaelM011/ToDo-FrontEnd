@@ -13,11 +13,11 @@ This app should have the following features:
 ### Week July 10th to July 16th
 - [X] Create mock Register feature without a server
 - [x] Create mock Sign In feature without a server
-- [ ] Create Sign Out option
+- [x] Create Sign Out option
 - [ ] Show mock To-Do's
-- [ ] Toggle To-Do's state (completed/pending)
+- [ ] Toggle To-Do state (completed/pending)
 - [ ] Add/Remove To-Do
-- [ ] Create a filter (all/completed/pending)
+- [x] Create a filter (all/completed/pending)
 - [ ] Integrate BackEnd
 
 ```mermaid
@@ -28,8 +28,8 @@ This app should have the following features:
         
         section Frontend
             Mock Register                   :done, 07-10, 1d
-            Mock Sign In                    :active, 07-11, 1d
-            Sign out                        :07-11, 1d
+            Mock Sign In                    :done, 07-11, 1d
+            Sign out                        :done, 07-11, 1d
             Mock To-Do's                    :07-12, 1d
             Toggle/Add/Remove To-Do's       :07-13, 1d
             Filter                          :07-15, 1d
@@ -37,8 +37,8 @@ This app should have the following features:
 
         section Testing
             Test Mock Register              :done, 07-10, 1d
-            Test Mock Sign In               :active, 07-11, 1d
-            Test Sign out                   :07-11, 1d
+            Test Mock Sign In               :done, 07-11, 1d
+            Test Sign out                   :done, 07-11, 1d
             Test Mock To-Do's               :07-12, 1d
             Test Toggle/Add/Remove To-Do's  :07-13, 1d
             Test Filter                     :07-15,1d
