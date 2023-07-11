@@ -21,8 +21,9 @@ export const ToDoItem: React.FC<Props> = ({todo, toggleTodo, eraseTodo}): JSX.El
     
 
     return(
-        <li onClick={() => toggleTodo(todo)}>
-            {todo.description}
+        <li className="flex justify-center gap-1">
+            <h1 onClick={() => toggleTodo(todo)}> {todo.description} </h1>
+            <button onClick={() => eraseTodo(todo)}> erase </button>
         </li>
     )
 }

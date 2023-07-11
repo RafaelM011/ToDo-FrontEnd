@@ -38,7 +38,15 @@ export const ToDo : React.FC = (): JSX.Element => {
     }
 
     const eraseTodo = (todo: Todo) => {
+        let i: number;
+        todos.forEach((item,index) => {
+            item.id === todo.id ? i = index : null
+        })
 
+        const newTodos = [...todos]
+        newTodos.splice(i!,1)
+
+        setTodos(newTodos)
     }
 
     const addTodo = (todo: string) => {
