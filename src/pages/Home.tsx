@@ -13,8 +13,8 @@ export default function Home(): JSX.Element {
 
   return (
     <>
-        <div className="text-right p-4">
-          <button className="text-2xl font-bold" onClick={handleRegisterClick}> Register </button>
+        <div className="text-right p-4 bg-[#CED6D6] h-[100vh]">
+          <button className="text-2xl font-bold text-black" onClick={handleRegisterClick}> Register </button>
           <SignIn/>
 
           {showModal && createPortal(<RegisterModal setShowModal={setShowModal}/>,document.getElementById('root')!)}

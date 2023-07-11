@@ -22,18 +22,28 @@ export const SignIn: React.FC = (): JSX.Element => {
    
     return(
         <>
-            <div className="m-auto w-7/12 max-w-[500px] h-fit p-4 border-2 border-black relative top-[200px]">
+            <div className="m-auto w-7/12 max-w-[500px] h-fit p-4 shadow-[0px_0px_20px_3px_rgba(0,0,0,1)] rounded-3xl relative top-[200px] bg-[#929E9E]">
                 <h1 className="text-center text-2xl font-bold mb-10"> To-Do App </h1>
                 <form onSubmit={(event) => handleSubmit(event)} className="">
-                    <label htmlFor='user' className="block text-center"> Username: </label>
-                    <input name='user' className="block mx-auto max-w-[180px] w-11/12" type="text" placeholder="username"></input>
+                    <label htmlFor='user' className="block text-center font-bold"> Username: </label>
+                    <input 
+                        name='user' 
+                        className="block pl-2 mx-auto max-w-[180px] w-11/12 outline-none rounded-r-full bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2" 
+                        type="text" 
+                        placeholder="username">
+                    </input>
                     <p className="text-red-400 mx-autp h-fit w-fit"> {formResponse?.label === 'user' && formResponse?.errorMessage} </p>
 
-                    <label htmlFor="password" className="block text-center"> Password: </label>
-                    <input name="password" className="block mx-auto max-w-[180px] w-11/12" type="password" placeholder="password"></input>
+                    <label htmlFor="password" className="block text-center font-bold mt-4"> Password: </label>
+                    <input 
+                        name="password" 
+                        className="block pl-2 mx-auto max-w-[180px] w-11/12 outline-none rounded-r-full bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2" 
+                        type="password" 
+                        placeholder="password">
+                    </input>
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'password' && formResponse?.errorMessage} </p>
 
-                    <button className="block mx-auto max-w-[180px] w-11/12" type="submit"> Sign In </button>    
+                    <button className="block mx-auto max-w-[180px] w-11/12 mt-8 font-bold rounded-full shadow-[0px_0px_20px_3px_rgba(0,0,0,1)]" type="submit"> Sign In </button>    
                 </form>
             </div>
         </>
