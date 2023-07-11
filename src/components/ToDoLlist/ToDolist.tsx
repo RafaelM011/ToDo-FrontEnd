@@ -14,13 +14,18 @@ export const ToDoList: React.FC<Props> = ({todos, addTodo}): JSX.Element => {
         setInputValue(event.target.value)
     }
 
+    const handleButton = () => {
+        setInputValue('')
+        addTodo(inputValue)
+    }
+
     return(
         <div className="w-[300px] text-center">
             <h1> To-Do List </h1>
-            <input className="" type="text" placeholder="add todo" onChange={(event) => changeInputValue(event)}></input>
-            <button onClick={() => addTodo(inputValue)}> Add </button>
+            <input className="" type="text" placeholder="add todo" value={inputValue} onChange={(event) => changeInputValue(event)}></input>
+            <button onClick={handleButton}> Add </button>
             <ul>
-                {todos.map(todo => <ToDoItem key={`0${todo.description}`} todo={todo}/>)}
+                {todos.map(todo => <ToDoItem key={todo.id} todo={todo}/>)}
             </ul>
         </div>
     )

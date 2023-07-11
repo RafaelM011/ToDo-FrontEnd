@@ -7,10 +7,12 @@ import { FilteredTodos } from "../components/FilteredTodos/FilteredTodos";
 
 const MockTodos: Todos = [
     {
+        id: 1,
         status: "Completed",
         description: "Nothing"
     },
     {
+        id: 2,
         status: "Pending",
         description: "All"
     },
@@ -25,6 +27,7 @@ export const ToDo : React.FC = (): JSX.Element => {
     const addTodo = (todo: string) => {
         setTodos(prevState => {
             return [...prevState].concat({
+                id: prevState[prevState.length-1].id+1,
                 status: "Pending",
                 description: todo
             })

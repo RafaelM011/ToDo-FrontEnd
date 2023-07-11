@@ -11,7 +11,7 @@ export const FilteredTodos: React.FC<Props> = ({todos}): JSX.Element => {
         <div className="w-[300px] text-center">
             <h1> Filtered To-Do List </h1>
             <ul>
-                {todos.map(todo => <ToDoItem key={todo.description} todo={todo}/>)}
+                {todos.map(todo => <ToDoItem key={todo.id} todo={todo}/>)}
             </ul>
         </div>
     )
