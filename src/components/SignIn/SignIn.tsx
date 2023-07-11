@@ -28,7 +28,7 @@ export const SignIn: React.FC = (): JSX.Element => {
                     <label htmlFor='user' className="block text-center font-bold"> Username: </label>
                     <input 
                         name='user' 
-                        className="block pl-2 mx-auto max-w-[180px] w-11/12 outline-none rounded-r-full bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2" 
+                        className="block pl-2 mx-auto max-w-[180px] w-11/12 outline-none rounded-full bg-inherit border-b-2 border-l-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" 
                         type="text" 
                         placeholder="username">
                     </input>
@@ -37,7 +37,7 @@ export const SignIn: React.FC = (): JSX.Element => {
                     <label htmlFor="password" className="block text-center font-bold mt-4"> Password: </label>
                     <input 
                         name="password" 
-                        className="block pl-2 mx-auto max-w-[180px] w-11/12 outline-none rounded-r-full bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2" 
+                        className="block pl-2 mx-auto max-w-[180px] w-11/12 outline-none rounded-full bg-inherit border-b-2 border-l-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" 
                         type="password" 
                         placeholder="password">
                     </input>

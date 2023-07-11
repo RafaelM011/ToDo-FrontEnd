@@ -51,33 +51,36 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
  
     return(
         <>
-            <div className="absolute top-0 bottom-0 left-0 right-0 m-auto w-7/12 max-w-[500px] h-fit p-4 border-2 border-black z-10">
+            <div 
+                className="absolute top-[240px] left-0 right-0 mx-auto w-7/12 max-w-[500px] h-fit p-4 z-10 shadow-[0px_0px_20px_3px_rgba(0,0,0,1)] rounded-3xl bg-[#929E9E]"
+            >
                 <div className="flex w-full justify-end" >
                     <h1 className="text-2xl font-bold basis-6/12"> Register </h1>
                     <img className="cursor-pointer" src={closeModalIMG} alt="close-modal" onClick={handleCloseModal}/>
                 </div>
+                
                 <form onSubmit={(event) => handleSubmit(event)} className="">
-                    <label htmlFor='user' className="block text-center"> Username: </label>
-                    <input name='user' className="block mx-auto max-w-[180px] w-11/12" type="text" placeholder="username"></input>
+                    <label htmlFor='user' className="block text-center font-bold mt-3"> Username: </label>
+                    <input name='user' className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="username"></input>
                     {/* <p className="text-red-400 mx-autp h-fit w-fit"> {formResponse?.label === 'user' && formResponse?.errorMessage} </p> */}
 
-                    <label htmlFor="email" className="block text-center"> E-mail: </label>
-                    <input name="email" className="block mx-auto max-w-[180px] w-11/12" type="text" placeholder="email@domain.com"></input>
+                    <label htmlFor="email" className="block text-center font-bold mt-3"> E-mail: </label>
+                    <input name="email" className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="email@domain.com"></input>
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'email' && formResponse?.errorMessage} </p>
 
 
-                    <label htmlFor="password" className="block text-center"> Password: </label>
-                    <input name="password" className="block mx-auto max-w-[180px] w-11/12" type="password" placeholder="password"></input>
+                    <label htmlFor="password" className="block text-center font-bold mt-3"> Password: </label>
+                    <input name="password" className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="password" placeholder="password"></input>
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'password' && formResponse?.errorMessage} </p>
 
-                    <label htmlFor="repeatedPassword" className="block text-center"> Repeat Password: </label>
-                    <input name="repeatedPassword"  className="block mx-auto max-w-[180px] w-11/12" type="password" placeholder="repeat password"></input>    
+                    <label htmlFor="repeatedPassword" className="block text-center font-bold mt-3"> Repeat Password: </label>
+                    <input name="repeatedPassword"  className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="password" placeholder="repeat password"></input>    
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'repeatedPassword' && formResponse?.errorMessage} </p>
 
-                    <button className="block mx-auto max-w-[180px] w-11/12" type="submit"> Create new account </button>    
+                    <button className="block mx-auto max-w-[180px] w-11/12 mt-8 p-2 font-bold rounded-full shadow-[0px_0px_20px_3px_rgba(0,0,0,1)]" type="submit"> Create new account </button>    
                 </form>
             </div>
-            <div className="absolute top-0 bottom-0 left-0 right-0 bg-slate-500 opacity-20">
+            <div className="absolute top-0 bottom-0 left-0 right-0 bg-[#CED6D6]">
             </div>
         </>
     )
