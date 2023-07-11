@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { ProfileBar } from "../components/ProfileBar/ProfileBar";
-import { type Todos } from "../types.d";
+import { type Todo, type Todos } from "../types.d";
 import { ToDoList } from "../components/ToDoLlist/ToDolist";
 import { FilteredTodos } from "../components/FilteredTodos/FilteredTodos";
 
@@ -24,6 +24,23 @@ export const ToDo : React.FC = (): JSX.Element => {
     const [ todos, setTodos] = useState(MockTodos)
     const [ filteredTodos, setFilteredTodos] = useState<Todos>(todos)
 
+    const toggleTodo = (todo: Todo) => {
+        const item = {...todo}
+        if(item.status === "Completed") item.status = "Pending"
+        else item.status = "Completed"
+
+        const newTodos =  todos.map(todoItem => {
+            if(todoItem.id === item.id) return item
+            else return todoItem
+        })
+
+        setTodos(newTodos)
+    }
+
+    const eraseTodo = (todo: Todo) => {
+
+    }
+
     const addTodo = (todo: string) => {
         setTodos(prevState => {
             return [...prevState].concat({
@@ -43,8 +60,8 @@ export const ToDo : React.FC = (): JSX.Element => {
         <div className="flex">
             <ProfileBar username={name!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
             <div className="flex">
-                <ToDoList todos={todos} addTodo={addTodo}/> 
-                <FilteredTodos todos={filteredTodos}/>                
+                <ToDoList todos={todos} addTodo={addTodo} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/> 
+                <FilteredTodos todos={filteredTodos} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/>                
             </div>
         </div>
     )

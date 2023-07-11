@@ -5,9 +5,19 @@ import { ToDoItem } from "../ToDoItem/ToDoItem";
 type Props = {
     todos: Todos;
     addTodo: (todo: string) => void;
+    toggleTodo: (todo: {
+        id: number;
+        status: "Completed" | "Pending";
+        description: string;  
+    }) => void;
+    eraseTodo: (todo: {
+        id: number;
+        status: "Completed" | "Pending";
+        description: string;  
+    }) => void;
 }
 
-export const ToDoList: React.FC<Props> = ({todos, addTodo}): JSX.Element => {
+export const ToDoList: React.FC<Props> = ({todos, addTodo, toggleTodo, eraseTodo}): JSX.Element => {
     const [ inputValue, setInputValue] = useState("")
 
     const changeInputValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -25,7 +35,7 @@ export const ToDoList: React.FC<Props> = ({todos, addTodo}): JSX.Element => {
             <input className="" type="text" placeholder="add todo" value={inputValue} onChange={(event) => changeInputValue(event)}></input>
             <button onClick={handleButton}> Add </button>
             <ul>
-                {todos.map(todo => <ToDoItem key={todo.id} todo={todo}/>)}
+                {todos.map(todo => <ToDoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/>)}
             </ul>
         </div>
     )
