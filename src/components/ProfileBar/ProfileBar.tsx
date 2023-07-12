@@ -41,8 +41,8 @@ export const ProfileBar: React.FC<Props> = ({username, todos, todoStatusFilter, 
 
             <button className="absolute left-0 right-0 mx-auto mt-20 rounded-full bg-black h-10 w-6/12 min-w-[100px] px-3" role="toggle-button" onClick={handleToggleButton}> 
                 <span className={`rounded-full bg-white w-[30px] h-[30px] block my-auto absolute bottom-0 top-0 ${todoStatusFilter === "Completed" ? "right-3" : "left-3"}`}>  </span> 
+                <h2 className="absolute mx-auto left-0 right-0 -bottom-10 text-xl font-semibold"> {todoStatusFilter} </h2>
             </button>
-            <h2> {todoStatusFilter} </h2>
 
             <button className="absolute left-0 right-0 bottom-10 text-2xl font-bold rounded-full shadow-[0px_0px_4px_4px_rgba(0,0,0,0.3)] p-1 mx-6  " onClick={() => navigate("/")}> Sign Out </button>
         </div>
