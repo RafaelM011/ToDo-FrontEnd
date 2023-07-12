@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import { ProfileBar } from "../components/ProfileBar/ProfileBar";
 import { type Todo, type Todos } from "../types.d";
 import { ToDoList } from "../components/ToDoLlist/ToDolist";
-import { FilteredTodos } from "../components/FilteredTodos/FilteredTodos";
 
 const MockTodos: Todos = [
     {
@@ -65,11 +64,10 @@ export const ToDo : React.FC = (): JSX.Element => {
     },[todoStatusFilter, todos])
 
     return(
-        <div className="flex">
+        <div className="flex w-[100vw] h-[100vh]">
             <ProfileBar username={name!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
-            <div className="flex bg-[#CED6D6] basis-5/6 h-[100vh]">
-                <ToDoList todos={todos} addTodo={addTodo} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/> 
-                <FilteredTodos todos={filteredTodos} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/>                
+            <div className="flex basis-5/6 bg-[#CED6D6] h-[100vh] justify-around">
+                <ToDoList todos={filteredTodos} addTodo={addTodo} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/> 
             </div>
         </div>
     )

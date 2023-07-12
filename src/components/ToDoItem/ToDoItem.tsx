@@ -21,9 +21,9 @@ export const ToDoItem: React.FC<Props> = ({todo, toggleTodo, eraseTodo}): JSX.El
     
 
     return(
-        <li className="flex justify-center gap-1">
-            <h1 onClick={() => toggleTodo(todo)}> {todo.description} </h1>
-            <button onClick={() => eraseTodo(todo)}> erase </button>
+        <li className="flex justify-between">
+            <h1 className={`text-lg font-medium ${todo.status === "Completed" ? "line-through decoration-red-600 decoration-4" : ""}`} onClick={() => toggleTodo(todo)}> {todo.description} </h1>
+            <button className="border-black border-r-2 border-l-2 rounded-full px-2 py-1" onClick={() => eraseTodo(todo)}> erase </button>
         </li>
     )
 }
