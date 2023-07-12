@@ -67,7 +67,7 @@ export const ToDo : React.FC = (): JSX.Element => {
     return(
         <div className="flex">
             <ProfileBar username={name!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
-            <div className="flex">
+            <div className="flex bg-[#CED6D6] basis-5/6">
                 <ToDoList todos={todos} addTodo={addTodo} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/> 
                 <FilteredTodos todos={filteredTodos} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/>                
             </div>
