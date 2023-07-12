@@ -2,12 +2,12 @@
 
 This app should have the following features:
 
-- [ ] Display a To-Do list created by the user
-- [ ] The user should be able to add/remove To-Do's
-- [ ] The user should be able to toggle To-Do's between completed/pending
-- [ ] Sign in/out and Register feature
+- [x] Display a To-Do list created by the user
+- [x] The user should be able to add/remove To-Do's
+- [x] The user should be able to toggle To-Do's between completed/pending
+- [x] Sign in/out and Register feature
 - [ ] Save To-Do's on the backend
-- [ ] Filter To-Do's by all/completed/pending
+- [x] Filter To-Do's by all/completed/pending
 - [ ] optional: add a deadline when creating a new To-Do 
 
 ### Week July 10th to July 16th
