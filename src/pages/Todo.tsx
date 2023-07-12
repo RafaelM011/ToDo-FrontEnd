@@ -19,7 +19,7 @@ const MockTodos: Todos = [
 
 export const ToDo : React.FC = (): JSX.Element => {
     const { name } = useParams();
-    const [ todoStatusFilter, setTodoStatusFilter] = useState<"Completed" | "Pending">("Pending")
+    const [ todoStatusFilter, setTodoStatusFilter] = useState<"Completed" | "Pending" | "All">("All")
     const [ todos, setTodos] = useState(MockTodos)
     const [ filteredTodos, setFilteredTodos] = useState<Todos>(todos)
 
@@ -59,6 +59,7 @@ export const ToDo : React.FC = (): JSX.Element => {
     }
 
     useEffect(() => {
+        if(todoStatusFilter === "All") return setFilteredTodos(todos)
         const filtered = todos.filter((todo) => todo.status === todoStatusFilter)
         setFilteredTodos(filtered)
     },[todoStatusFilter, todos])
