@@ -7,7 +7,7 @@ type Props = {
 }
 
 interface IData {
-    user: string;
+    username: string;
     email: string;
     password: string;
     repeatedPassword: string;
@@ -19,9 +19,23 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
     const EMAIL_REGEX = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/m
     
+    const postUser = async ({username, email, password} : {username: string, email: string, password: string}) => {
+        const request = await fetch('http://127.0.0.1:4000/register', {
+            method: "post",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                username,
+                password,
+                email
+            })
+        })
+        const data = await request.json()
+        console.log(data);
+    }
+
     const validateData = (data: IData): {response: boolean, label: string, errorMessage: string} => {
-        let { email, password, repeatedPassword} = data;
-                
+        let { username, email, password, repeatedPassword} = data;
+        
         let isValidEmail = EMAIL_REGEX.test(email)
         let isValidPassword = PASSWORD_REGEX.test(password);
         let isValidRepetition = password === repeatedPassword;
@@ -29,6 +43,8 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
         if(!isValidEmail) return {response: false, label:"email", errorMessage:"Email is incorrect"}
         else if(!isValidPassword) return {response: false, label:"password", errorMessage:"Password doesn't match the criteria"}
         else if (!isValidRepetition) return {response: false, label:"repeatedPassword", errorMessage:"Passwords are not equal"}
+
+        postUser({username, email, password})
 
         return {response: true, label:"", errorMessage:""};
     }   
@@ -40,7 +56,7 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
 
         if(formValidation.response === true){
             setFormResponse(formValidation)
-            navigate(`/user/1/${formData.user}`)
+            navigate(`/user/1/${formData.username}`)
         } 
         else setFormResponse(formValidation)
     }
@@ -60,8 +76,8 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
                 </div>
                 
                 <form onSubmit={(event) => handleSubmit(event)} className="">
-                    <label htmlFor='user' className="block text-center font-bold mt-3"> Username: </label>
-                    <input name='user' className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="username"></input>
+                    <label htmlFor='username' className="block text-center font-bold mt-3"> Username: </label>
+                    <input name='username' className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="username"></input>
                     {/* <p className="text-red-400 mx-autp h-fit w-fit"> {formResponse?.label === 'user' && formResponse?.errorMessage} </p> */}
 
                     <label htmlFor="email" className="block text-center font-bold mt-3"> E-mail: </label>
