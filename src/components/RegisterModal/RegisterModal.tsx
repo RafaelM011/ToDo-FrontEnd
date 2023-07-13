@@ -29,8 +29,9 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
                 email
             })
         })
+
         const data = await request.json()
-        console.log(data);
+        return data
     }
 
     const validateData = (data: IData): {response: boolean, label: string, errorMessage: string} => {
@@ -45,7 +46,6 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
         else if (!isValidRepetition) return {response: false, label:"repeatedPassword", errorMessage:"Passwords are not equal"}
 
         postUser({username, email, password})
-
         return {response: true, label:"", errorMessage:""};
     }   
 
