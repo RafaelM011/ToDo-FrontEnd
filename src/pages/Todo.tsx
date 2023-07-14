@@ -1,27 +1,26 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { ProfileBar } from "../components/ProfileBar/ProfileBar";
-import { type Todo, type Todos } from "../types.d";
+import { type Todo } from "../types.d";
 import { ToDoList } from "../components/ToDoLlist/ToDolist";
 
-const MockTodos: Todos = [
-    {
-        id: 1,
-        status: "Completed",
-        description: "Nothing"
-    },
-    {
-        id: 2,
-        status: "Pending",
-        description: "All"
-    },
-]
-
 export const ToDo : React.FC = (): JSX.Element => {
-    const { name } = useParams();
+    const { username } = useParams();
     const [ todoStatusFilter, setTodoStatusFilter] = useState<"Completed" | "Pending" | "All">("All")
-    const [ todos, setTodos] = useState(MockTodos)
-    const [ filteredTodos, setFilteredTodos] = useState<Todos>(todos)
+    const [ todos, setTodos] = useState<Todo[]>([])
+    const [ filteredTodos, setFilteredTodos] = useState<Todo[]>(todos)
+    
+    useEffect(() => {
+        fetch(`http://127.0.0.1:4000/todos/${username}`)
+        .then( res => res.json())
+        .then( data => setTodos(data))
+    },[])
+
+    useEffect(() => {
+        if(todoStatusFilter === "All") return setFilteredTodos(todos)
+        const filtered = todos.filter((todo) => todo.status === todoStatusFilter)
+        setFilteredTodos(filtered)
+    },[todoStatusFilter, todos])
 
     const toggleTodo = (todo: Todo) => {
         const item = {...todo}
@@ -66,15 +65,10 @@ export const ToDo : React.FC = (): JSX.Element => {
         })
     }
 
-    useEffect(() => {
-        if(todoStatusFilter === "All") return setFilteredTodos(todos)
-        const filtered = todos.filter((todo) => todo.status === todoStatusFilter)
-        setFilteredTodos(filtered)
-    },[todoStatusFilter, todos])
 
     return(
         <div className="flex w-[100vw] h-[100vh]">
-            <ProfileBar username={name!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
+            <ProfileBar username={username!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
             <div className="flex basis-5/6 bg-[#CED6D6] h-[100vh] justify-around">
                 <ToDoList todos={filteredTodos} addTodo={addTodo} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/> 
             </div>

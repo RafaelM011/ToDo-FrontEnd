@@ -80,23 +80,23 @@ export const RegisterModal: React.FC<Props> = ({setShowModal}): JSX.Element => {
                 
                 <form onSubmit={(event) => handleSubmit(event)} className="">
                     <label htmlFor='username' className="block text-center font-bold mt-3"> Username: </label>
-                    <input name='username' className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="username"></input>
+                    <input name='username' className="block mx-auto pl-2 max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="username"></input>
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'username' && formResponse?.errorMessage} </p>
 
                     <label htmlFor="email" className="block text-center font-bold mt-3"> E-mail: </label>
-                    <input name="email" className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="email@domain.com"></input>
+                    <input name="email" className="block mx-auto pl-2 max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="text" placeholder="email@domain.com"></input>
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'email' && formResponse?.errorMessage} </p>
 
 
                     <label htmlFor="password" className="block text-center font-bold mt-3"> Password: </label>
-                    <input name="password" className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="password" placeholder="password"></input>
+                    <input name="password" className="block mx-auto pl-2 max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="password" placeholder="password"></input>
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'password' && formResponse?.errorMessage} </p>
 
                     <label htmlFor="repeatedPassword" className="block text-center font-bold mt-3"> Repeat Password: </label>
-                    <input name="repeatedPassword"  className="block mx-auto max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="password" placeholder="repeat password"></input>    
+                    <input name="repeatedPassword"  className="block mx-auto pl-2 max-w-[180px] w-11/12 outline-none rounded-full border-l-2 bg-inherit border-b-2 border-black focus:border-b-0 focus:border-l-2 focus:border-r-2 placeholder:text-[#929E9E]" type="password" placeholder="repeat password"></input>    
                     <p className="text-red-400 mx-auto h-fit w-fit"> {formResponse?.label === 'repeatedPassword' && formResponse?.errorMessage} </p>
 
-                    <button className="block mx-auto max-w-[180px] w-11/12 mt-8 p-2 font-bold rounded-full shadow-[0px_0px_20px_3px_rgba(0,0,0,1)]" type="submit"> Create new account </button>    
+                    <button className="block mx-auto pl-2 max-w-[180px] w-11/12 mt-8 p-2 font-bold rounded-full shadow-[0px_0px_20px_3px_rgba(0,0,0,1)]" type="submit"> Create new account </button>    
                 </form>
             </div>
             <div className="absolute top-0 bottom-0 left-0 right-0 bg-[#CED6D6]">

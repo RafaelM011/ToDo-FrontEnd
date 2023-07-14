@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     errorElement: <>PAGE DOESN'T EXISTS</>
   },
   {
-    path:"/user/:id/:name",
+    path:"/user/:id/:username",
     element: <ToDo/>
   }
 ]);
