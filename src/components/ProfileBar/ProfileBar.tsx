@@ -36,20 +36,20 @@ export const ProfileBar: React.FC<Props> = ({username, todos, todoStatusFilter, 
     }
 
     return(
-        <div className="basis-1/6 h-[100vh] bg-[#929E9E] z-10 py-8 px-4 shadow-[4px_0px_10px_5px_rgba(0,0,0,0.5)] relative">
+        <div className="basis-1/6 h-[100vh] bg-[#929E9E] z-10 py-8 px-4 shadow-[4px_0px_10px_5px_rgba(0,0,0,0.5)] relative max-[940px]:hidden">
             <h1 className="text-center font-bold text-2xl"> {username} </h1>
             
             <div className="flex flex-col gap-3 mt-5">
                 <h2 className="flex justify-between font-semibold text-lg">  
-                    <span className=""> Todos: </span> 
-                    <span className=""> {completedTodos + pendingTodos} </span>
+                    <span> Todos: </span> 
+                    <span> {completedTodos + pendingTodos} </span>
                 </h2>
                 <h2 className="flex justify-between font-semibold text-lg"> 
-                    <span> Completed todos: </span>
+                    <span> Completed: </span>
                     <span> {completedTodos} </span>
                 </h2>
                 <h2 className="flex justify-between font-semibold text-lg"> 
-                    <span> Pending todos: </span> 
+                    <span> Pending: </span> 
                     <span> {pendingTodos} </span>
                 </h2>
             </div>

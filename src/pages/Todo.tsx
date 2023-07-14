@@ -3,9 +3,11 @@ import { useParams } from "react-router-dom"
 import { ProfileBar } from "../components/ProfileBar/ProfileBar";
 import { type Todo } from "../types.d";
 import { ToDoList } from "../components/ToDoLlist/ToDolist";
+import menuImg from "../assets/menu.png"
 
 export const ToDo : React.FC = (): JSX.Element => {
-    const { username } = useParams();
+    const { username } = useParams()
+    const [ hidden, setHidden] = useState("hidden")
     const [ todoStatusFilter, setTodoStatusFilter] = useState<"Completed" | "Pending" | "All">("All")
     const [ todos, setTodos] = useState<Todo[]>([])
     const [ filteredTodos, setFilteredTodos] = useState<Todo[]>(todos)
@@ -59,9 +61,15 @@ export const ToDo : React.FC = (): JSX.Element => {
 
 
     return(
-        <div className="flex w-[100vw] h-[100vh]">
+        <div className="flex flex-row max-[940px]:flex-col w-[100vw] h-[100vh]">
+            <div className={`absolute top-2 left-2 z-20 min-[941px]:hidden`}>
+                <img src={menuImg} alt="menuImg" onClick={() => setHidden(prev => prev === "hidden" ? "block" : "hidden")}/>
+            </div>
+            <div className={`${hidden} bg-[#CED6D6] `}>
+                
+            </div>
             <ProfileBar username={username!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
-            <div className="flex basis-5/6 bg-[#CED6D6] h-[100vh] justify-around">
+            <div className="flex grow bg-[#CED6D6] h-[100vh] justify-around">
                 <ToDoList todos={filteredTodos} addTodo={addTodo} toggleTodo={toggleTodo} eraseTodo={eraseTodo}/> 
             </div>
         </div>
