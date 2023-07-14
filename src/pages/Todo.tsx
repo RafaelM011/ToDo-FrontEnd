@@ -65,11 +65,17 @@ export const ToDo : React.FC = (): JSX.Element => {
             <div className={`absolute top-2 left-2 z-20 min-[941px]:hidden`}>
                 <img src={menuImg} alt="menuImg" onClick={() => setHidden(prev => prev === "hidden" ? "block" : "hidden")}/>
             </div>
-            <div className={`${hidden} bg-[#CED6D6] px-4 pt-10 flex`}>
-                <div className="flex flex-col gap-2">
-                    <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("All")}> All </button>
-                    <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("Completed")}> Completed </button>
-                    <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("Pending")}> Pending </button>
+            <div className={`${hidden} bg-[#CED6D6] px-4 py-10 flex flex-col`}>
+                <div className="flex justify-center">
+                    <h1 className="text-center text-xl font-bold"> {username} </h1>
+                    <button className="font-bold rounded-full shadow-[0px_0px_4px_4px_rgba(0,0,0,0.3)] px-4 ml-4"> Sign Out </button>
+                </div>
+                <div className="flex flex-row">
+                    <div className="flex flex-col gap-2">
+                        <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("All")}> All </button>
+                        <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("Completed")}> Completed </button>
+                        <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("Pending")}> Pending </button>
+                    </div>
                 </div>
             </div>
             <ProfileBar username={username!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
