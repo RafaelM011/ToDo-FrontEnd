@@ -1,9 +1,9 @@
 import { useState } from "react"
-import {type Todos } from "../../types.d"
+import {type Todo } from "../../types.d"
 import { ToDoItem } from "../ToDoItem/ToDoItem";
 
 type Props = {
-    todos: Todos;
+    todos: Todo[];
     addTodo: (todo: string) => void;
     toggleTodo: (todo: {
         id: number;

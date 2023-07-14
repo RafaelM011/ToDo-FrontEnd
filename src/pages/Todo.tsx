@@ -48,21 +48,13 @@ export const ToDo : React.FC = (): JSX.Element => {
     }
 
     const addTodo = (todo: string) => {
-        setTodos(prevState => {
-            if(prevState.length === 0) {
-                return [...prevState].concat({
-                    id: 1,
-                    status: "Pending",
-                    description: todo
-                })    
-            }
-
-            return [...prevState].concat({
-                id: prevState[prevState.length-1].id+1,
-                status: "Pending",
-                description: todo
-            })
+        fetch(`http://127.0.0.1:4000/todos/${username}/addtodo`, {
+            method: "PUT",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({description: todo})
         })
+        .then( res => res.json())
+        .then( data => setTodos(data))
     }
 
 
