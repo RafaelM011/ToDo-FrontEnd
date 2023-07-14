@@ -1,4 +1,4 @@
-# ToDo App
+# ToDo App - FrontEnd
 
 This app should have the following features:
 
@@ -39,7 +39,7 @@ This app should have the following features:
             Test Mock Register              :done, 07-10, 1d
             Test Mock Sign In               :done, 07-11, 1d
             Test Sign out                   :done, 07-11, 1d
-            Test Mock To-Do's               :07-12, 1d
-            Test Toggle/Add/Remove To-Do's  :07-13, 1d
+            Test Mock To-Do's               :done, 07-12, 1d
+            Test Toggle/Add/Remove To-Do's  :done, 07-13, 1d
             Test Filter                     :done, 07-15,1d
 ```
