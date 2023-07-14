@@ -20,6 +20,8 @@ This app should have the following features:
 - [x] Create a filter (all/completed/pending)
 - [x] Integrate BackEnd
 
+FIX TODO ITEMS OVERFLOWING AND NAVBAR NOT HIDDING
+
 ```mermaid
     gantt 
         title To-Do Project Schedule
