@@ -23,16 +23,18 @@ export const ToDo : React.FC = (): JSX.Element => {
     },[todoStatusFilter, todos])
 
     const toggleTodo = (todo: Todo) => {
-        const item = {...todo}
-        if(item.status === "Completed") item.status = "Pending"
-        else item.status = "Completed"
+        const newStatus = todo.status === "Pending" ? "Completed" : "Pending";
 
-        const newTodos =  todos.map(todoItem => {
-            if(todoItem.id === item.id) return item
-            else return todoItem
+        fetch(`http://127.0.0.1:4000/todos/${username}/toggletodo`, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                id: todo.id,
+                status: newStatus
+            })
         })
-
-        setTodos(newTodos)
+        .then( res => res.json())
+        .then( data => setTodos(data))
     }
 
     const eraseTodo = (todo: Todo) => {
