@@ -65,8 +65,12 @@ export const ToDo : React.FC = (): JSX.Element => {
             <div className={`absolute top-2 left-2 z-20 min-[941px]:hidden`}>
                 <img src={menuImg} alt="menuImg" onClick={() => setHidden(prev => prev === "hidden" ? "block" : "hidden")}/>
             </div>
-            <div className={`${hidden} bg-[#CED6D6] `}>
-                
+            <div className={`${hidden} bg-[#CED6D6] px-4 pt-10 flex`}>
+                <div className="flex flex-col gap-2">
+                    <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("All")}> All </button>
+                    <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("Completed")}> Completed </button>
+                    <button className="text-left text-md font-medium border-black border-b-2 border-r-2 rounded-full px-4" onClick={() => setTodoStatusFilter("Pending")}> Pending </button>
+                </div>
             </div>
             <ProfileBar username={username!}  todos={todos} todoStatusFilter={todoStatusFilter} setTodoStatusFilter={setTodoStatusFilter}/>
             <div className="flex grow bg-[#CED6D6] h-[100vh] justify-around">
