@@ -6,7 +6,7 @@ This app should have the following features:
 - [x] The user should be able to add/remove To-Do's
 - [x] The user should be able to toggle To-Do's between completed/pending
 - [x] Sign in/out and Register feature
-- [ ] Save To-Do's on the backend
+- [x] Save To-Do's on the backend
 - [x] Filter To-Do's by all/completed/pending
 - [ ] optional: add a deadline when creating a new To-Do 
 
@@ -18,7 +18,7 @@ This app should have the following features:
 - [x] Toggle To-Do state (completed/pending)
 - [x] Add/Remove To-Do
 - [x] Create a filter (all/completed/pending)
-- [ ] Integrate BackEnd
+- [x] Integrate BackEnd
 
 ```mermaid
     gantt 
@@ -33,7 +33,7 @@ This app should have the following features:
             Mock To-Do's                    :done, 07-12, 1d
             Toggle/Add/Remove To-Do's       :done, 07-13, 1d
             Filter                          :done, 07-15, 1d
-            BackEnd                         :07-16, 1d
+            BackEnd                         :done, 07-16, 1d
 
         section Testing
             Test Mock Register              :done, 07-10, 1d
