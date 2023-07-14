@@ -36,15 +36,13 @@ export const ToDo : React.FC = (): JSX.Element => {
     }
 
     const eraseTodo = (todo: Todo) => {
-        let i: number;
-        todos.forEach((item,index) => {
-            item.id === todo.id ? i = index : null
+        fetch(`http://127.0.0.1:4000/todos/${username}/deltodo`, {
+            method: "DELETE",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id: todo.id})
         })
-
-        const newTodos = [...todos]
-        newTodos.splice(i!,1)
-
-        setTodos(newTodos)
+        .then( res => res.json())
+        .then( data => setTodos(data))
     }
 
     const addTodo = (todo: string) => {
